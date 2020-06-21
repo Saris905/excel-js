@@ -11,7 +11,10 @@
     "semi": "off",
     "indent": "off",
     "max-len": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "eol-last": "off",
+    "operator-linebreak": "off",
+    "no-trailing-spaces": "off"
   },
   "extends": ["eslint:recommended", "google"]
 }
