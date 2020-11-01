@@ -13,6 +13,7 @@
     }
 
     .row-info {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -27,6 +28,7 @@
     }
 
     .column {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -54,7 +56,83 @@
         &.selected {
             z-index: 2;
             border: none;
-            outline: 2px solid #3c74ff;
+            outline: 2px solid $primary-color;
+        }
+    }
+
+    .col-resize, .row-resize {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 100;
+        background-color: $primary-color;
+        opacity: 0;
+        transition: .3s opacity ease;
+
+        &:hover {
+            opacity: 1!important;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            background-color: rgba(#4081ff, .7);
+            opacity: 0;
+        }
+
+        &._fullDivider {
+
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+
+    .col-resize {
+        top: 0;
+        width: 4px;
+
+        &:hover {
+            cursor: col-resize;
+        }
+
+        &:after {
+            top: 0;
+            right: 50%;
+            width: 1px;
+            height: 100vh;
+        }
+
+        &._divider {
+            width: 1px;
+            height: 100vh;
+            background-color: rgba(#4081ff, .7);
+            opacity: 1;
+            transform: translateX(1px);
+        }
+    }
+
+    .row-resize {
+        left: 0;
+        height: 4px;
+
+        &:hover {
+            cursor: row-resize;
+        }
+
+        &:after {
+            bottom: 50%;
+            left: 0;
+            width: 100vw;
+            height: 1px;
+        }
+
+        &._divider {
+            width: 100vw;
+            height: 1px;
+            background-color: rgba(#4081ff, .7);
+            opacity: 1;
+            transform: translateY(1px);
         }
     }
 }
