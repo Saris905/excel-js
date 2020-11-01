@@ -46,7 +46,7 @@ export function resizeHandler($root, event) {
         } else {
             $parent.css({height: value + 'px'});
             $resizer.css({
-                right: 0
+                bottom: 0
             });
         }
     };
