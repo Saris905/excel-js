@@ -31,8 +31,8 @@ export class Emitter {
     }
 }
 
-const emitter = new Emitter();
-
-emitter.subscribe('vladilen', data => console.log('sub', data));
-
-emitter.emit('vladilen', 42);
+// const emitter = new Emitter();
+//
+// emitter.subscribe('vladilen', data => console.log('sub', data));
+//
+// emitter.emit('vladilen', 42);
