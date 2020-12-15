@@ -1,20 +1,19 @@
 import {$} from '@core/dom';
 import {Emitter} from '@core/Emitter';
 import {StoreSubscriber} from '@core/StoreSubscriber';
+import {updateDate} from '@/redux/actions';
 // внутри данного файла происходит запуск приложения
 
 export class Excel {
-    constructor(selector, options) {
-        this.$el = $(selector);
+    constructor(options) {
         this.components = options.components || [];
         this.store = options.store;
         this.emitter = new Emitter();
         this.subscriber = new StoreSubscriber(this.store);
     }
 
-    render() {
-        this.$el.append(this.getRoot());
-
+    init() {
+        this.store.dispatch(updateDate());
         this.subscriber.subscribeComponents(this.components);
         this.components.forEach(component => component.init()); // для каждого компонента запускаем инит слушателей, обязательно после отрисовки
     }
