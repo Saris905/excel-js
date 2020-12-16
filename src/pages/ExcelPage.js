@@ -1,4 +1,4 @@
-import {createStore} from '@core/createStore';
+import {createStore} from '@core/store/createStore';
 import {rootReducer} from '@/redux/rootReducer';
 import {storage, debounce} from '@core/utils';
 import {normalizeInitialState} from '@/redux/initialState';
